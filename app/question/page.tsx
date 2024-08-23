@@ -3,17 +3,30 @@ import SingleCard from "../components/SingleCard";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 
+// Define the type for a flashcard
+type FlashcardType = {
+  question: string;
+  // Add other properties here if necessary
+};
+
+// Define the type for the result object
+type ResultType = {
+  score: number;
+  correctAnswer: string;
+  userTranslation: string;
+};
+
 export default function Home() {
   const { isLoaded, isSignedIn, user } = useUser();
-  const [flashcards, setFlashcards] = useState([]);
-  const [flipped, setFlipped] = useState({});
-  const [text, setText] = useState("");
-  const [userAnswers, setUserAnswers] = useState({});
-  const [generated, setGenerated] = useState(false);
-  const [language, setLanguage] = useState("French");
-  const [level, setLevel] = useState("Intermediate");
-  const [result, setResult] = useState({});
-  const [totalResult, setTotalResult] = useState(0);
+  const [flashcards, setFlashcards] = useState<FlashcardType[]>([]);
+  const [flipped, setFlipped] = useState<boolean[]>([]);
+  const [text, setText] = useState<string>("");
+  const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
+  const [generated, setGenerated] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>("French");
+  const [level, setLevel] = useState<string>("Intermediate");
+  const [result, setResult] = useState<{ [key: number]: ResultType }>({});
+  const [totalResult, setTotalResult] = useState<number>(0);
 
   const handleSubmit = async () => {
     const requestData = {
@@ -38,7 +51,7 @@ export default function Home() {
     }
   };
 
-  const handleEvaluate = async (index) => {
+  const handleEvaluate = async (index: number) => {
     const currentQuestion = flashcards[index].question;
     const userInput = userAnswers[index];
 
@@ -74,15 +87,14 @@ export default function Home() {
     }
   };
 
-  const handleCardClick = (index) => {
+  const handleCardClick = (index: number) => {
     setFlipped((prev) => ({
       ...prev,
       [index]: false,
     }));
   };
 
-  const handleUserInputChange = (index, value) => {
-    console.log(value, "input");
+  const handleUserInputChange = (index: number, value: string) => {
     setUserAnswers((prev) => ({
       ...prev,
       [index]: value,
@@ -90,7 +102,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#131B2A]  w-full min-h-screen">
+    <div className="bg-[#131B2A] w-full min-h-screen">
       <div className="flex justify-center w-full">
         <div className="w-1/2 min-w-[300px]">
           <div className="space-y-3 mt-3">
@@ -136,7 +148,7 @@ export default function Home() {
         {flashcards.length > 0 && (
           <>
             <div className="text-[20px] mb-4">Questions {totalResult}</div>
-            <div className="grid grid-cols-3 gap-4 justify-center w-5/6 ">
+            <div className="grid grid-cols-3 gap-4 justify-center w-5/6">
               {flashcards.map((singleCard, index) => (
                 <div
                   key={index}
@@ -160,8 +172,8 @@ export default function Home() {
                     </div>
                     <div className="p-4 absolute w-full h-full flex  backface-hidden shadow-lg rounded-lg transform rotate-y-180">
                       <div className="w-full space-y-3 h-full  overflow-auto">
-                        <p className="text-[22px] font-semibold">Result </p>
-                        <p className="w-full ">
+                        <p className="text-[22px] font-semibold">Result</p>
+                        <p className="w-full">
                           <span className="text-[18px] text-[#10823a] font-medium mr-2">
                             Score:
                           </span>{" "}

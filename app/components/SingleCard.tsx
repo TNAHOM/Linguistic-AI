@@ -1,7 +1,15 @@
 "use client";
 import React from "react";
 
-const SingleCard = ({ questions, index, onInputChange }) => {
+const SingleCard = ({
+  questions,
+  index,
+  onInputChange,
+}: {
+  questions: string;
+  index: number;
+  onInputChange: (value: string) => void;
+}) => {
   return (
     <div className="space-y-4">
       <div className="space-y-1 w-[90%]">
