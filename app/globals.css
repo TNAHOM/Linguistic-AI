@@ -2,32 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.backface-hidden {
+  backface-visibility: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.transform-style-3d {
+  transform-style: preserve-3d;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Style for the entire scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Style for the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #131b2a; /* Background color of the track */
+  border-radius: 100px;
+}
+
+/* Style for the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #facc15; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #131b2a; /* Padding around the thumb */
+}
+
+/* Optional: Style the scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffd700; /* Hover color for the scrollbar thumb */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #facc15 #131b2a; /* Thumb color and track color */
 }
