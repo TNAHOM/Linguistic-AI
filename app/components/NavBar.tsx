@@ -13,7 +13,7 @@ const NavBar = () => {
       </Head>
 
       <nav className="flex  px-8 py-3 justify-between bg-[#8f5f28] text-white">
-        <p className="text-[20px]">AI-FlaskCard</p>
+        <p className="text-[20px]">LINGUISTIC-AI</p>
         <div>
           <SignedOut>
             <Link href="/sign-in"> Login </Link>
