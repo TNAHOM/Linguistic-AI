@@ -16,7 +16,7 @@ const Testemonials = () => {
                     </div>
                     <div className='flex flex-col w-full gap-4 justify-center items-center'>
                         <h2 className='section-heading'>See what our customers are saying</h2>
-                        <p className='light-p'> Here's what some of our customers are saying about our platform </p>
+                        <p className='light-p'> Heres what some of our customers are saying about our platform </p>
                     </div>
                 </div>
             </div>

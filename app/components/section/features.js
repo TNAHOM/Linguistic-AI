@@ -60,7 +60,7 @@ const Features = () => {
                             <FolderOpenIcon className='w-6 h-6' />
                             <h3 className='content-center font-medium text-[18px]'>Comprehensive Statistics</h3>
                         </div>
-                        <p className='light-p'>Track your progress with detailed statistics. See how much you've improved over time and identify areas that need more focus.</p>
+                        <p className='light-p'>Track your progress with detailed statistics. See how much you have improved over time and identify areas that need more focus.</p>
                     </div>
                 </div>
             </div>

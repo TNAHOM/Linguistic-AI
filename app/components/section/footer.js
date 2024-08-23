@@ -6,7 +6,7 @@ const Footer = () => {
             <div className='text-center w-3/4 flex flex-col items-center'>
                 <h2 className='section-heading'>A Better way to Work Today Together</h2>
                 <div className="font-normal text-xs md:text-xl dark:text-neutral-200 py-4 text-center font-helvetica text-[#838383] w-5/6">
-                    Here's what some of our customers are saying about our platform Here's what some of our customers are saying about our platform of our customers are saying about our platform </div>
+                    Heres what some of our customers are saying about our platform Heres what some of our customers are saying about our platform of our customers are saying about our platform </div>
             </div>
             <div className="flex gap-4 text-[17px]">
                 <button className="bg-white dark:bg-white rounded-2xl w-fit text-black px-7 py-4 font-medium font-helvetica">
